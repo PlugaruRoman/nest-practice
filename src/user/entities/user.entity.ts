@@ -1,5 +1,4 @@
-import { Category } from 'src/category/entities/category.entity';
-import { Product } from 'src/products/entities/product.entity';
+import { Product } from 'src/product/entities/product.entity';
 import {
   Column,
   CreateDateColumn,
@@ -19,15 +18,10 @@ export class User {
   @Column()
   password: string;
 
-  @OneToMany(() => Category, (category) => category.user, {
-    onDelete: 'CASCADE',
-  })
-  categories: Category[];
-
   @OneToMany(() => Product, (product) => product.user, {
     onDelete: 'CASCADE',
   })
-  products: Product[];
+  product: Product[];
 
   @CreateDateColumn()
   createdAt: Date;

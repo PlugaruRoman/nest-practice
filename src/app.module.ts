@@ -2,16 +2,15 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
-import { CategoryModule } from './category/category.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductsModule } from './products/products.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
     UserModule,
-    CategoryModule,
+    ProductModule,
     AuthModule,
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
@@ -28,7 +27,6 @@ import { ProductsModule } from './products/products.module';
       }),
       inject: [ConfigService],
     }),
-    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

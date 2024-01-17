@@ -1,4 +1,3 @@
-import { Product } from 'src/products/entities/product.entity';
 import { User } from 'src/user/entities/user.entity';
 import {
   Column,
@@ -6,22 +5,18 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class Category {
-  @PrimaryGeneratedColumn({ name: 'categoryId' })
+export class Product {
+  @PrimaryGeneratedColumn({ name: 'productId' })
   id: number;
 
-  @ManyToOne(() => User, (user) => user.categories)
+  @ManyToOne(() => User, (user) => user.product)
   @JoinColumn({ name: 'user_id' })
   user: User;
-
-  @OneToMany(() => Product, (product) => product.category)
-  products: Product[];
 
   @Column()
   title: string;
