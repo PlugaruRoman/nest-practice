@@ -26,6 +26,10 @@ export class ProductService {
 
     const newProduct = {
       title: createProductDto.title,
+      description: createProductDto.description,
+      image: createProductDto.image,
+      price: createProductDto.price,
+      category: createProductDto.category,
       user: {
         id,
       },

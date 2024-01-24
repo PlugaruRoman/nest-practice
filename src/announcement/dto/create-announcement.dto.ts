@@ -1,7 +1,7 @@
 import { IsArray, IsNotEmpty, IsNumber, IsOptional } from 'class-validator';
 import { User } from 'src/user/entities/user.entity';
 
-export class CreateProductDto {
+export class CreateAnnouncementDto {
   @IsNotEmpty()
   title: string;
 

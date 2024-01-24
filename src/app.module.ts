@@ -6,12 +6,14 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './product/product.module';
+import { AnnouncementModule } from './announcement/announcement.module';
 
 @Module({
   imports: [
     UserModule,
     ProductModule,
     AuthModule,
+    AnnouncementModule,
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

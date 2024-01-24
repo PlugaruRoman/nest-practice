@@ -10,11 +10,11 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Product {
-  @PrimaryGeneratedColumn({ name: 'productId' })
+export class Announcement {
+  @PrimaryGeneratedColumn({ name: 'announcementId' })
   id: number;
 
-  @ManyToOne(() => User, (user) => user.product)
+  @ManyToOne(() => User, (user) => user.announcement)
   @JoinColumn({ name: 'user_id' })
   user: User;
 
@@ -25,10 +25,10 @@ export class Product {
   description: string;
 
   @Column()
-  category: string[];
+  image: string[];
 
   @Column()
-  image: string[];
+  category: string[];
 
   @Column()
   price: number;
