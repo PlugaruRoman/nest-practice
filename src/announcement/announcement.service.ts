@@ -44,24 +44,25 @@ export class AnnouncementService {
   }
 
   async findOne(id: number) {
-    const product = await this.announcementRepository.findOne({
+    const announcement = await this.announcementRepository.findOne({
       where: { id },
       relations: {
         user: true,
       },
     });
 
-    if (!product) throw new NotFoundException('Announcement not found!');
+    if (!announcement) throw new NotFoundException('Announcement not found!');
 
-    return product;
+    return announcement;
   }
 
   async update(id: number, updateAnnouncementDto: UpdateAnnouncementDto) {
-    const product = await this.announcementRepository.findOne({
+    const announcement = await this.announcementRepository.findOne({
       where: { id },
     });
 
-    if (!product) throw new NotFoundException("Announcement doesn't found!");
+    if (!announcement)
+      throw new NotFoundException("Announcement doesn't found!");
 
     return await this.announcementRepository.update(id, updateAnnouncementDto);
   }
